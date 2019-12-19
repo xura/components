@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import emporium from '@xura/emporium';
+import React, { Component } from 'react'
+import emporium from '@xura/data';
 
 export default class extends Component {
     state = {
@@ -7,7 +7,7 @@ export default class extends Component {
     };
 
     componentDidMount() {
-        emporium.count.subscribe(_ => this.setState({count: _}))
+
     }
 
     render() {
