@@ -15,14 +15,5 @@ base.optimization = {
     namedModules: true
 };
 
-base.module = {
-    rules: [
-        {
-            test: /\.js|x$/,
-            exclude: /node_modules/,
-            use: { loader: "babel-loader" }
-        },
-    ]
-};
 
 module.exports = base;

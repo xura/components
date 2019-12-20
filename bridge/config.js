@@ -1,10 +1,13 @@
-import singleSpaHtml from 'single-spa-html';
-import '../src/index';
-
-const htmlLifecycles = singleSpaHtml({
-    template: '<feed-div></feed-div>',
+import React from 'react';
+import ReactDOM from 'react-dom';
+import rootComponent from '../src/nav.component.js';
+// Note that SingleSpaContext is a react@16.3 (if available) context that provides the singleSpa props
+import singleSpaReact, { SingleSpaContext } from 'single-spa-react';
+const reactLifecycles = singleSpaReact({
+    React,
+    ReactDOM,
+    rootComponent,
 });
-
-export const bootstrap = htmlLifecycles.bootstrap;
-export const mount = htmlLifecycles.mount;
-export const unmount = htmlLifecycles.unmount;
+export const bootstrap = reactLifecycles.bootstrap;
+export const mount = reactLifecycles.mount;
+export const unmount = reactLifecycles.unmount;

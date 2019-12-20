@@ -2,27 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Xura | Components</title>
-    <script type="systemjs-importmap">
-    {
-      "imports": {
-        "@xura/data": "http://localhost:9000/data.js"
-      }
+  <meta charset="UTF-8">
+  <title>Xura | Components</title>
+  <script type="systemjs-importmap">
+  {
+    "imports": {
+      "rxjs": "https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.5.3/rxjs.umd.min.js",
+      "@xura/data": "http://localhost:8238/data.js"
     }
-  </script>
-    <script src='https://unpkg.com/systemjs@4.1.0/dist/system.js'></script>
-    <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/amd.js'></script>
-    <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/named-exports.js'></script>
-    <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/use-default.js'></script>
-    <script>
-        System.import('@xura/data')
-    </script>
+  }
+</script>
+  <script src='https://unpkg.com/systemjs@4.1.0/dist/system.js'></script>
+  <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/amd.js'></script>
+  <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/named-exports.js'></script>
+  <script src='https://unpkg.com/systemjs@4.1.0/dist/extras/use-default.js'></script>
 </head>
 
 <body>
-    <div id="root"></div>
-    <script src="./components.js"></script>
+  <div id="root"></div>
+  <script>
+    System.import('./components.js')
+  </script>
 </body>
 
 </html>

@@ -17,6 +17,20 @@ module.exports = {
             'node_modules',
         ],
     },
+    devServer: {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js|x$/,
+                exclude: /node_modules/,
+                use: { loader: "babel-loader" }
+            },
+        ]
+    },
     plugins: [
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: ['build/comoponents']
