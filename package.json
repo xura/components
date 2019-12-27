@@ -1,33 +1,28 @@
 {
-  "name": "@xura/components",
+  "name": "components",
   "version": "0.0.1",
-  "main": "src/nav.component.js",
-  "repository": "https://joe307bad@github.com/xura/components.git",
-  "author": "Joe Badaczewski <joe307bad@gmail.com>",
-  "license": "MIT",
   "scripts": {
-    "start:solo": "webpack-dev-server --mode development --open --hot --config ./solo/webpack.config.solo.js",
-    "start": "webpack-dev-server --mode development --open --hot --config ./bridge/webpack.config.js --port 8239",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server --mode development --open --hot --config ./bridge/webpack.config.js --port 8241",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "@xura/data": "https://github.com/xura/data.git#0.0.3",
+    "@babel/core": "^7.7.7",
+    "@material/mwc-icon-button": "^0.12.0",
+    "@material/mwc-top-app-bar": "^0.12.0",
+    "@storybook/addon-info": "^5.2.8",
+    "@storybook/html": "^5.2.8",
     "babel-loader": "^8.0.6",
+    "ce-decorators": "^2.6.1",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "html-webpack-plugin": "^3.2.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "rxjs": "^6.5.3",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
+    "copy-webpack-plugin": "^5.1.1",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
-  "dependencies": {
-    "single-spa-react": "^2.11.0"
-  }
+  "license": "MIT",
+  "dependencies": {}
 }
