@@ -2,13 +2,14 @@
   "name": "components",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot --config ./bridge/webpack.config.js --port 8241",
+    "start": "webpack-dev-server --mode development --hot --config ./bridge/webpack.config.js --port 8241",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@material/mwc-icon-button": "^0.12.0",
+    "@material/mwc-textfield": "^0.12.0",
     "@material/mwc-top-app-bar": "^0.12.0",
     "@storybook/addon-info": "^5.2.8",
     "@storybook/html": "^5.2.8",
@@ -19,6 +20,7 @@
     "react-docgen-typescript-loader": "^3.6.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
+    "uuid": "^3.3.3",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
