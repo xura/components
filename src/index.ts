@@ -1,3 +1,3 @@
-import './form/text-input'
-import './navigation'
-import './list'
+import './components/form/text-input'
+import './components/navigation'
+import './components/list'
