@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "@xura/components",
   "version": "0.0.1",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --config ./bridge/webpack.config.js --port 8241",
@@ -14,11 +14,13 @@
     "@material/mwc-top-app-bar": "^0.12.0",
     "@storybook/addon-info": "^5.2.8",
     "@storybook/html": "^5.2.8",
+    "@types/uuid": "^3.4.6",
     "babel-loader": "^8.0.6",
     "ce-decorators": "^2.6.1",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "react-docgen-typescript-loader": "^3.6.0",
+    "reflect-metadata": "^0.1.13",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.4",
     "uuid": "^3.3.3",

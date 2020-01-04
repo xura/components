@@ -1,6 +1,10 @@
 import { Observable } from 'rxjs'
 
-export interface Input<T> {
-    getValue(): T;
-    stream(): Observable<T>
+export abstract class Input<T> {
+    getValue(): T {
+        throw Error()
+    };
+    stream(): Observable<T> {
+        throw Error()
+    };
 }

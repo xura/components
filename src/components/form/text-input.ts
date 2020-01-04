@@ -19,12 +19,12 @@ export class TextInput extends CustomElement implements Input<string> {
         return this._stream
     }
     getValue(): string {
-        return this._input.value;
+        return this._input?.value;
     }
 
     componentDidRender() {
         this._input = this.shadowRoot.querySelector(`#${this._identifier}`)
-        this.icon && this._input.setAttribute('icon', this.icon)
+        this.icon && this._input?.setAttribute('icon', this.icon)
     }
 
     private _identifier = uuid('mwc-textfield', '1b671a64-40d5-491e-99b0-da01ff1f3341')

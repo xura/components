@@ -1568,6 +1568,13 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/uuid@^3.4.6":
+  version "3.4.6"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.6.tgz#d2c4c48eb85a757bf2927f75f939942d521e3016"
+  integrity sha512-cCdlC/1kGEZdEglzOieLDYBxHsvEOIg7kp/2FYyVR9Pxakq+Qf/inL3RKQ+PA8gOlI/NnL+fXmQH12nwcGzsHw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/webpack-env@^1.13.9":
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.14.1.tgz#0d8a53f308f017c53a5ddc3d07f4d6fa76b790d7"
@@ -7121,6 +7128,11 @@ recursive-readdir@2.2.2:
   integrity sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg==
   dependencies:
     minimatch "3.0.4"
+
+reflect-metadata@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
+  integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
 
 refractor@^2.4.1:
   version "2.10.0"
