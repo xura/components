@@ -2,7 +2,6 @@
   "name": "@xura/components",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot --config ./bridge/webpack.config.js --port 8241",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
