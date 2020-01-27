@@ -12,11 +12,9 @@ export const buildForm = (entity: any) => (container: string) => {
             return;
 
         var element = document.createElement(metadata.type);
-
         forOwn(metadata, (value, key) => element.setAttribute(key, value))
+        document.getElementById(container).appendChild(element);
 
-        var target = document.getElementById(container);
-        target.appendChild(element);
         return merge(acc || of(false), element.stream().pipe(map(change => [key, change])))
     })
 
