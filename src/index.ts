@@ -1,4 +1,5 @@
 import 'reflect-metadata'
+export * from './components/form/text-area'
 export * from './components/form/text-input'
 export * from './components/navigation'
 export * from './components/list'

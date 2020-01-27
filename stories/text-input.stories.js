@@ -1,4 +1,4 @@
-import '../src/form/text-input'
+import '../src/components/form/text-input'
 
 export default {
     title: 'Text Input',

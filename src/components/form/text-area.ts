@@ -1,19 +1,19 @@
 import { Component, CustomElement, Prop, html } from 'ce-decorators';
 import uuid from 'uuid/v5';
-import '@material/mwc-textfield';
-import { TextField } from '@material/mwc-textfield';
-import { Input } from '../../builder'
+import '@material/mwc-textarea';
+import { TextArea } from '@material/mwc-textarea';
 import { Observable, BehaviorSubject } from 'rxjs'
+import { Input } from '../../builder';
 
 const VALIDATION_MESSAGES = {
     REQUIRED: (fieldName: string) => `${fieldName} is required`
 }
 
 @Component({
-    tag: 'xura-text-input',
+    tag: 'xura-text-area',
     style: ``,
 })
-export class TextInput extends CustomElement implements Input<string> {
+export class TextAreaInput extends CustomElement implements Input<string> {
 
     stream(): Observable<string> {
         return this._stream
@@ -27,16 +27,16 @@ export class TextInput extends CustomElement implements Input<string> {
         this.icon && this._input?.setAttribute('icon', this.icon)
     }
 
-    private _identifier = uuid('mwc-textfield', '1b671a64-40d5-491e-99b0-da01ff1f3341')
+    private _identifier = `mwc-textarea-${uuid('mwc-textarea', '1b671a64-40d5-491e-99b0-da01ff1f3341')}`
 
-    private _input?: TextField;
+    private _input?: TextArea;
 
     private _stream: BehaviorSubject<string> = new BehaviorSubject('')
 
-    private _updateValue = (e: Event) => this._stream.next((e.target as TextField).value)
+    private _updateValue = (e: Event) => this._stream.next((e.target as TextArea).value)
 
     @Prop({ type: String })
-    label: string = 'Text Input';
+    label: string = 'Text Area';
 
     @Prop()
     icon: string;
@@ -62,7 +62,6 @@ export class TextInput extends CustomElement implements Input<string> {
     }
 
     render() {
-        console.log(this.label)
-        return html`<mwc-textfield @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textfield>`;
+        return html`<mwc-textarea @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textarea>`;
     }
 }

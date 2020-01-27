@@ -2,12 +2,11 @@ import 'reflect-metadata';
 import { reduce } from 'lodash';
 
 export const buildForm = (entity: any) => (container: string) => {
-    return reduce((new entity() as any), (acc: any, _value: any, key: any) => {
+    return reduce((new entity() as any), (_acc: any, _value: any, key: any) => {
         const metadata = Reflect.getMetadata("metadata", new entity(), key);
 
         if (!metadata)
             return;
-
 
         const { label, type } = metadata;
         var newDiv = document.createElement(type);

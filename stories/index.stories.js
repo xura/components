@@ -1,4 +1,4 @@
-import '../src/navigation'
+import '../src/components/navigation'
 
 export default {
   title: 'Navigation',

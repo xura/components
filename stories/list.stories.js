@@ -1,4 +1,4 @@
-import '../src/list'
+import '../src/components/list'
 import uuid from 'uuid/v5'
 
 export default {

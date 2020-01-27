@@ -989,6 +989,18 @@
     lit-html "^1.1.2"
     tslib "^1.10.0"
 
+"@material/mwc-textarea@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@material/mwc-textarea/-/mwc-textarea-0.12.0.tgz#b2b878d0e3dabebbcb6c089d5c5515f044717c58"
+  integrity sha512-53LLve3jAR1ScsRXSG5p9A1lX0nxOa8Me0gLsoGsyASrFEaniTy401GVJnbP5WnWs0fQB4w6Y2aEM9CVmqGf6w==
+  dependencies:
+    "@material/mwc-base" "^0.12.0"
+    "@material/mwc-textfield" "^0.12.0"
+    "@material/textfield" "=5.0.0-canary.1c494e567.0"
+    lit-element "^2.2.1"
+    lit-html "^1.1.2"
+    tslib "^1.10.0"
+
 "@material/mwc-textfield@^0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@material/mwc-textfield/-/mwc-textfield-0.12.0.tgz#56361a936ee9dd940d80ee2efa10f30284f23858"
