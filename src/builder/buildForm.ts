@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { reduce, forOwn } from 'lodash';
 import { merge, of } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export const buildForm = (entity: any) => (container: string) => {
     let changes = {};
@@ -9,17 +9,16 @@ export const buildForm = (entity: any) => (container: string) => {
     const streams = reduce((new entity() as any), (acc: any, _value: any, key: any) => {
         const metadata = Reflect.getMetadata("metadata", new entity(), key);
         if (!metadata)
-            return;
+            return acc;
 
         var element = document.createElement(metadata.type);
         forOwn(metadata, (value, key) => element.setAttribute(key, value))
         document.getElementById(container).appendChild(element);
 
-        return merge(acc || of(false), element.stream().pipe(map(change => [key, change])))
-    })
+        return merge(acc, element.stream().pipe(map(change => [key, change])))
+    }, of())
 
     return streams.pipe(
-        filter(change => !!change),
         map((change: [string, string]) => {
             if (!Boolean(change[0]))
                 return changes;
