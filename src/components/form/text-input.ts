@@ -13,7 +13,7 @@ const VALIDATION_MESSAGES = {
     tag: 'xura-text-input',
     style: ``,
 })
-export class TextInput extends CustomElement implements Input<string> {
+export class TextInput extends CustomElement {
 
     stream(): Observable<string> {
         return this._stream
@@ -35,7 +35,7 @@ export class TextInput extends CustomElement implements Input<string> {
 
     private _updateValue = (e: Event) => this._stream.next((e.target as TextField).value)
 
-    @Prop()
+    @Prop({ type: String })
     label: string = 'Text Input';
 
     @Prop()
@@ -62,6 +62,7 @@ export class TextInput extends CustomElement implements Input<string> {
     }
 
     render() {
+        console.log(this.label)
         return html`<mwc-textfield @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textfield>`;
     }
 }
