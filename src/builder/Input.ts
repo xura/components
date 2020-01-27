@@ -4,7 +4,7 @@ export abstract class Input<T> {
     getValue(): T {
         throw Error()
     };
-    stream(): Observable<T> {
+    stream(): Observable<string> {
         throw Error()
     };
 }

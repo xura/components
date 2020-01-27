@@ -1,24 +1,36 @@
 import 'reflect-metadata';
-import { reduce } from 'lodash';
+import { reduce, forOwn } from 'lodash';
+import { merge, of } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 export const buildForm = (entity: any) => (container: string) => {
-    return reduce((new entity() as any), (_acc: any, _value: any, key: any) => {
-        const metadata = Reflect.getMetadata("metadata", new entity(), key);
+    let changes = {};
 
+    const streams = reduce((new entity() as any), (acc: any, _value: any, key: any) => {
+        const metadata = Reflect.getMetadata("metadata", new entity(), key);
         if (!metadata)
             return;
 
-        const { label, type } = metadata;
-        var newDiv = document.createElement(type);
-        newDiv.setAttribute('label', label)
-        newDiv.setAttribute('title', label)
+        var element = document.createElement(metadata.type);
 
-        var currentDiv = document.getElementById(container);
-        currentDiv.appendChild(newDiv);
+        forOwn(metadata, (value, key) => element.setAttribute(key, value))
 
-        // return {
-        //     ...acc,
-        //     [key]: Reflect.getMetadata("metadata", new entity(), key)
-        // }
-    }, {})
-}
+        var target = document.getElementById(container);
+        target.appendChild(element);
+        return merge(acc || of(false), element.stream().pipe(map(change => [key, change])))
+    })
+
+    return streams.pipe(
+        filter(change => !!change),
+        map((change: [string, string]) => {
+            if (!Boolean(change[0]))
+                return changes;
+
+            changes = {
+                ...changes,
+                ...{ [change[0]]: change[1] }
+            }
+            return changes
+        })
+    );
+};
