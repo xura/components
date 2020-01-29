@@ -820,6 +820,21 @@
   dependencies:
     tslib "^1.9.3"
 
+"@material/button@=5.0.0-canary.1c494e567.0":
+  version "5.0.0-canary.1c494e567.0"
+  resolved "https://registry.yarnpkg.com/@material/button/-/button-5.0.0-canary.1c494e567.0.tgz#55504930715896532b9318211a07a67de057a35b"
+  integrity sha512-cv+UFAPx0s2Rs7wksGNucU5fF836WbbMm0rQAxlSwsCMxB8k86OembnHIbhwVJDcrAYlWiz/mnO+THZKBnMc2Q==
+  dependencies:
+    "@material/density" "5.0.0-canary.1c494e567.0"
+    "@material/elevation" "5.0.0-canary.1c494e567.0"
+    "@material/feature-targeting" "5.0.0-canary.1c494e567.0"
+    "@material/ripple" "5.0.0-canary.1c494e567.0"
+    "@material/rtl" "5.0.0-canary.1c494e567.0"
+    "@material/shape" "5.0.0-canary.1c494e567.0"
+    "@material/theme" "5.0.0-canary.1c494e567.0"
+    "@material/touch-target" "5.0.0-canary.1c494e567.0"
+    "@material/typography" "5.0.0-canary.1c494e567.0"
+
 "@material/density@5.0.0-canary.1c494e567.0":
   version "5.0.0-canary.1c494e567.0"
   resolved "https://registry.yarnpkg.com/@material/density/-/density-5.0.0-canary.1c494e567.0.tgz#ab32e79fcc52797469fc719ddfa08400d79b6d71"
@@ -922,6 +937,19 @@
     "@material/dom" "=5.0.0-canary.1c494e567.0"
     "@material/ripple" "=5.0.0-canary.1c494e567.0"
     lit-element "^2.2.1"
+    tslib "^1.10.0"
+
+"@material/mwc-button@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@material/mwc-button/-/mwc-button-0.12.0.tgz#a76da8b1101cb0e864eeef092ab5ce40b767ff0b"
+  integrity sha512-cKSFBzmxW2cDiG9OFmv7ef32uhFTMs8ICrGDJGne2FxErTfQCekz21SxgQGR7eZ35WVMiQkvPWyv2qkonIji7g==
+  dependencies:
+    "@material/button" "=5.0.0-canary.1c494e567.0"
+    "@material/mwc-base" "^0.12.0"
+    "@material/mwc-icon" "^0.12.0"
+    "@material/mwc-ripple" "^0.12.0"
+    lit-element "^2.2.1"
+    lit-html "^1.1.2"
     tslib "^1.10.0"
 
 "@material/mwc-floating-label@^0.12.0":
@@ -1139,6 +1167,13 @@
     "@material/theme" "5.0.0-canary.1c494e567.0"
     "@material/typography" "5.0.0-canary.1c494e567.0"
     tslib "^1.9.3"
+
+"@material/touch-target@5.0.0-canary.1c494e567.0":
+  version "5.0.0-canary.1c494e567.0"
+  resolved "https://registry.yarnpkg.com/@material/touch-target/-/touch-target-5.0.0-canary.1c494e567.0.tgz#74906e93d3b6d957c1ac470e21746c4510b1c3eb"
+  integrity sha512-K6he0fCA63ruaR1I19M7PMNJW1m2t50YiX/UUQSJFtGq72WmA6NXu8CEWjuPI8mPXNbl8pMFCnv7UXsLANyvSg==
+  dependencies:
+    "@material/feature-targeting" "5.0.0-canary.1c494e567.0"
 
 "@material/typography@5.0.0-canary.1c494e567.0":
   version "5.0.0-canary.1c494e567.0"

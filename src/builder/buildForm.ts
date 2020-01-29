@@ -20,9 +20,6 @@ export const buildForm = (entity: any) => (container: string) => {
 
     return streams.pipe(
         map((change: [string, string]) => {
-            if (!Boolean(change[0]))
-                return changes;
-
             changes = {
                 ...changes,
                 ...{ [change[0]]: change[1] }

@@ -4,7 +4,6 @@ import '@material/mwc-textarea';
 import { TextArea } from '@material/mwc-textarea';
 import { Observable, BehaviorSubject } from 'rxjs'
 import { Input } from '../../builder';
-import camelcase from 'camelcase';
 
 const VALIDATION_MESSAGES = {
     REQUIRED: (fieldName: string) => `${fieldName} is required`
