@@ -1,6 +1,6 @@
 import { Component, CustomElement, html, Prop } from 'ce-decorators';
 import '@material/mwc-button';
-import { createTypeStyle, style, TypeStyle } from 'typestyle';
+import { createTypeStyle, style } from 'typestyle';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
 @Component({
@@ -16,6 +16,6 @@ export class Button extends CustomElement {
         const instance = createTypeStyle();
         const className = instance.style(this.styles)
 
-        return html`<mwc-button outlined class=${className} label="${this.innerHTML}"></mwc-button>`;
+        return html`<style>${instance.getStyles()}</style><mwc-button outlined class=${className} label="${this.innerHTML}"></mwc-button>`;
     }
 }

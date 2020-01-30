@@ -70,6 +70,6 @@ export class TextAreaInput extends CustomElement implements Input<string> {
         const instance = createTypeStyle();
         const className = instance.style(this.styles)
 
-        return html`<mwc-textarea class=${className} @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textarea>`;
+        return html`<style>${instance.getStyles()}</style><mwc-textarea class=${className} @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textarea>`;
     }
 }
