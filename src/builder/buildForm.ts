@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
 export const buildForm = (entity: any) =>
+    // TODO instead of sending in inputStyles, we need to send in a dictionary of input tags and NestedCSSProperties so we can apply different styles to different inputs
     (container: string, inputStyles: NestedCSSProperties) => {
         let changes = {};
 
