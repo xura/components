@@ -4,6 +4,8 @@ import '@material/mwc-textarea';
 import { TextArea } from '@material/mwc-textarea';
 import { Observable, BehaviorSubject } from 'rxjs'
 import { Input } from '../../builder';
+import { createTypeStyle, style } from 'typestyle';
+import { NestedCSSProperties } from 'typestyle/lib/types';
 
 const VALIDATION_MESSAGES = {
     REQUIRED: (fieldName: string) => `${fieldName} is required`
@@ -47,6 +49,9 @@ export class TextAreaInput extends CustomElement implements Input<string> {
     @Prop()
     required: boolean = false
 
+    @Prop({ type: style })
+    styles: NestedCSSProperties;
+
     setValidityMessages(event) {
         const {
             valueMissing
@@ -62,6 +67,9 @@ export class TextAreaInput extends CustomElement implements Input<string> {
     }
 
     render() {
-        return html`<mwc-textarea @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textarea>`;
+        const instance = createTypeStyle();
+        const className = instance.style(this.styles)
+
+        return html`<mwc-textarea class=${className} @keyup=${this._updateValue} @blur=${this.setValidityMessages} @input=${this.setValidityMessages} ?required="${this.required}" id='${this._identifier}' label="${this.label}"></mwc-textarea>`;
     }
 }

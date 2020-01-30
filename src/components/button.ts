@@ -1,5 +1,7 @@
-import { Component, CustomElement, html } from 'ce-decorators';
+import { Component, CustomElement, html, Prop } from 'ce-decorators';
 import '@material/mwc-button';
+import { createTypeStyle, style, TypeStyle } from 'typestyle';
+import { NestedCSSProperties } from 'typestyle/lib/types';
 
 @Component({
     tag: 'xura-button',
@@ -7,7 +9,13 @@ import '@material/mwc-button';
 })
 export class Button extends CustomElement {
 
+    @Prop({ type: style })
+    styles: NestedCSSProperties;
+
     render() {
-        return html`<mwc-button outlined label="${this.innerHTML}"></mwc-button>`;
+        const instance = createTypeStyle();
+        const className = instance.style(this.styles)
+
+        return html`<mwc-button outlined class=${className} label="${this.innerHTML}"></mwc-button>`;
     }
 }
