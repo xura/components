@@ -13,6 +13,9 @@ export class Drawer extends CustomElement {
     @Prop({ type: style })
     styles: NestedCSSProperties;
 
+    @Prop({ type: String })
+    title: string = 'Title';
+
     render() {
         const instance = createTypeStyle();
         const className = instance.style(this.styles)
@@ -27,13 +30,8 @@ export class Drawer extends CustomElement {
                 <mwc-icon-button icon="gavel"></mwc-icon-button>
             </div>
             <div slot="appContent">
-                <mwc-top-app-bar>
-                    <mwc-icon-button slot="navigationIcon" icon="menu"></mwc-icon-button>
-                    <div slot="title">Title</div>
-                </mwc-top-app-bar>
-                <div>
-                    <slot name="content"></slot>
-                </div>
+                <xura-navigation title="${this.title}"></xura-navigation>
+                <slot name="content"></slot>
             </div>
         </mwc-drawer>
         `;
