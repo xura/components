@@ -1,4 +1,4 @@
-import { Component, CustomElement, html, Prop } from 'ce-decorators';
+import { Component, CustomElement, html, Prop, State } from 'ce-decorators';
 import { createTypeStyle, style } from 'typestyle';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
@@ -16,12 +16,20 @@ export class Drawer extends CustomElement {
     @Prop({ type: String })
     title: string = 'Title';
 
+    @State()
+    private isDrawerOpen?: boolean;
+
+    toggleDrawer() {
+        debugger;
+        document.getElementById('drawer').setAttribute('open', 'open')
+    }
+
     render() {
         const instance = createTypeStyle();
         const className = instance.style(this.styles)
 
         return html`
-        <mwc-drawer open="true" hasHeader type="dismissible">
+        <mwc-drawer id="drawer" hasHeader type="dismissible">
             <span slot="title">Drawer Title</span>
             <span slot="subtitle">subtitle</span>
             <div>
@@ -30,7 +38,7 @@ export class Drawer extends CustomElement {
                 <mwc-icon-button icon="gavel"></mwc-icon-button>
             </div>
             <div slot="appContent">
-                <xura-navigation title="${this.title}"></xura-navigation>
+                <xura-navigation title="${this.title}" @toggle="${_ => this.toggleDrawer()}"></xura-navigation>
                 <slot name="content"></slot>
             </div>
         </mwc-drawer>
