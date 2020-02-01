@@ -1,4 +1,4 @@
-import { Component, CustomElement, html, Prop, State } from 'ce-decorators';
+import { Component, CustomElement, html, Prop, Watch } from 'ce-decorators';
 import { createTypeStyle, style } from 'typestyle';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
@@ -16,12 +16,21 @@ export class Drawer extends CustomElement {
     @Prop({ type: String })
     title: string = 'Title';
 
-    @State()
-    private isDrawerOpen?: boolean;
+    @Prop({ type: Boolean })
+    isDrawerOpen?: boolean = false;
 
     toggleDrawer() {
-        debugger;
-        document.getElementById('drawer').setAttribute('open', 'open')
+        this.isDrawerOpen = !this.isDrawerOpen;
+    }
+
+    @Watch('isDrawerOpen')
+    isDrawerOpenWatcher(_oldValue: boolean, isDrawerOpen: boolean) {
+        const drawer = this.shadowRoot.getElementById('drawer');
+        if (isDrawerOpen) {
+            drawer.setAttribute('open', 'open');
+        } else {
+            drawer.removeAttribute('open');
+        }
     }
 
     render() {
@@ -29,7 +38,7 @@ export class Drawer extends CustomElement {
         const className = instance.style(this.styles)
 
         return html`
-        <mwc-drawer id="drawer" hasHeader type="dismissible">
+        <mwc-drawer id="drawer" hasHeader type="modal" @MDCDrawer:closed=${_ => this.toggleDrawer()}>
             <span slot="title">Drawer Title</span>
             <span slot="subtitle">subtitle</span>
             <div>
