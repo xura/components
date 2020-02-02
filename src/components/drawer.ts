@@ -45,9 +45,8 @@ export class Drawer extends CustomElement {
         const items = JSON.stringify(this.items)
 
         return html`
-        <div onClick="this.getRootNode().host.navigate.emit('Users')">click to emit</div>
         <mwc-drawer id="drawer" type="modal" @MDCDrawer:closed=${_ => this.toggleDrawer()}>
-            <xura-list items="${items}"></xura-list>
+            <xura-list @itemClick="${evt => this.navigate.emit(evt.detail)}" items="${items}"></xura-list>
             <div slot="appContent">
                 <xura-navigation title="${this.title}" @toggleDrawer="${_ => this.toggleDrawer()}"></xura-navigation>
                 <slot name="content"></slot>
