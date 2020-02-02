@@ -1,4 +1,4 @@
-import { Component, CustomElement, html, Prop, Watch } from 'ce-decorators';
+import { Component, CustomElement, html, Prop, Watch, EventEmitter, Event } from 'ce-decorators';
 import { createTypeStyle, style } from 'typestyle';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
@@ -19,6 +19,9 @@ export class Drawer extends CustomElement {
     @Prop({ type: Boolean })
     isDrawerOpen?: boolean = false;
 
+    @Prop({ type: Array<String>() })
+    items: string[] = [];
+
     toggleDrawer() {
         this.isDrawerOpen = !this.isDrawerOpen;
     }
@@ -33,21 +36,20 @@ export class Drawer extends CustomElement {
         }
     }
 
+    @Event()
+    navigate: EventEmitter<string>
+
     render() {
         const instance = createTypeStyle();
         const className = instance.style(this.styles)
+        const items = JSON.stringify(this.items)
 
         return html`
-        <mwc-drawer id="drawer" hasHeader type="modal" @MDCDrawer:closed=${_ => this.toggleDrawer()}>
-            <span slot="title">Drawer Title</span>
-            <span slot="subtitle">subtitle</span>
-            <div>
-                <p>Drawer content!</p>
-                <mwc-icon-button icon="gesture"></mwc-icon-button>
-                <mwc-icon-button icon="gavel"></mwc-icon-button>
-            </div>
+        <div onClick="this.getRootNode().host.navigate.emit('Users')">click to emit</div>
+        <mwc-drawer id="drawer" type="modal" @MDCDrawer:closed=${_ => this.toggleDrawer()}>
+            <xura-list items="${items}"></xura-list>
             <div slot="appContent">
-                <xura-navigation title="${this.title}" @toggle="${_ => this.toggleDrawer()}"></xura-navigation>
+                <xura-navigation title="${this.title}" @toggleDrawer="${_ => this.toggleDrawer()}"></xura-navigation>
                 <slot name="content"></slot>
             </div>
         </mwc-drawer>

@@ -14,12 +14,12 @@ export class Navigation extends CustomElement {
     isDrawerOpen: Boolean = false;
 
     @Event()
-    toggle: EventEmitter<any>;
+    toggleDrawer: EventEmitter<any>;
 
     render() {
 
         return html`<mwc-top-app-bar>
-            <mwc-icon-button icon="menu" onClick="this.getRootNode().host.toggle.emit()" slot="navigationIcon"></mwc-icon-button>
+            <mwc-icon-button icon="menu" onClick="this.getRootNode().host.toggleDrawer.emit()" slot="navigationIcon"></mwc-icon-button>
             <div slot="title">${this.title}</div>
             <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
             <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
