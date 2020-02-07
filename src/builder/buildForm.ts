@@ -5,17 +5,17 @@ import { map } from 'rxjs/operators';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
 export const buildForm = (entity: any) => ({
-    changes: elements => formChanges(elements),
+    changes: elements => changes(elements),
     renderer: render(entity)
 })
 
-export const formChanges = (elements: any[]) => {
+export const changes = (elements: any[]) => {
     let changes = {};
 
     const streams = elements.reduce((acc, { element, key }) =>
         merge(acc, element.stream().pipe(map(change => [key, change]))), of()
     )
-    debugger;
+
     return streams.pipe(
         map((change: [string, string]) => {
             changes = {
