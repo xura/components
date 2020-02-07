@@ -4,14 +4,35 @@ import { merge, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
-export const buildForm = (entity: any) =>
-    // TODO instead of sending in inputStyles, we need to send in a dictionary of input tags and NestedCSSProperties so we can apply different styles to different inputs
-    (containerId: string, inputStyles: NestedCSSProperties) => {
-        let changes = {};
-        const container = document.getElementById(containerId)
-        container.innerHTML = '';
+export const buildForm = (entity: any) => ({
+    changes: elements => formChanges(elements),
+    renderer: render(entity)
+})
 
-        const streams = reduce((new entity() as any), (acc: any, _value: any, key: any) => {
+export const formChanges = (elements: any[]) => {
+    let changes = {};
+
+    const streams = elements.reduce((acc, { element, key }) =>
+        merge(acc, element.stream().pipe(map(change => [key, change]))), of()
+    )
+    debugger;
+    return streams.pipe(
+        map((change: [string, string]) => {
+            changes = {
+                ...changes,
+                ...{ [change[0]]: change[1] }
+            }
+            return changes
+        })
+    );
+}
+
+export const render = (entity: any) =>
+    // TODO instead of sending in inputStyles, we need to send in a dictionary of input tags and NestedCSSProperties so we can apply different styles to different inputs
+    (inputStyles: NestedCSSProperties) => {
+        const container = document.createElement('div')
+
+        const elements = reduce((new entity() as any), (acc: any, _value: any, key: any) => {
             const metadata = Reflect.getMetadata("metadata", new entity(), key);
             if (!metadata)
                 return acc;
@@ -21,16 +42,14 @@ export const buildForm = (entity: any) =>
             element.setAttribute('styles', JSON.stringify(inputStyles));
             container.appendChild(element);
 
-            return merge(acc, element.stream().pipe(map(change => [key, change])))
-        }, of())
+            return [
+                ...acc,
+                { element, key }
+            ]
+        }, [])
 
-        return streams.pipe(
-            map((change: [string, string]) => {
-                changes = {
-                    ...changes,
-                    ...{ [change[0]]: change[1] }
-                }
-                return changes
-            })
-        );
+        return {
+            container,
+            elements
+        }
     };
