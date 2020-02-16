@@ -4,7 +4,7 @@ import '@material/mwc-textfield';
 import { TextField } from '@material/mwc-textfield';
 import { Input } from '../../builder'
 import { Observable, BehaviorSubject } from 'rxjs'
-import { createTypeStyle, style, TypeStyle } from 'typestyle';
+import { createTypeStyle, style } from 'typestyle';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
 const VALIDATION_MESSAGES = {

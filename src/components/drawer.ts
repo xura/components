@@ -1,5 +1,5 @@
 import { Component, CustomElement, html, Prop, Watch, EventEmitter, Event } from 'ce-decorators';
-import { createTypeStyle, style } from 'typestyle';
+import { style } from 'typestyle';
 import { NestedCSSProperties } from 'typestyle/lib/types';
 
 import '@material/mwc-drawer';
@@ -28,11 +28,11 @@ export class Drawer extends CustomElement {
 
     @Watch('isDrawerOpen')
     isDrawerOpenWatcher(_oldValue: boolean, isDrawerOpen: boolean) {
-        const drawer = this.shadowRoot.getElementById('drawer');
+        const drawer = this.shadowRoot?.getElementById('drawer');
         if (isDrawerOpen) {
             drawer.setAttribute('open', 'open');
         } else {
-            drawer.removeAttribute('open');
+            drawer?.removeAttribute('open');
         }
     }
 
@@ -40,8 +40,8 @@ export class Drawer extends CustomElement {
     navigate: EventEmitter<string>
 
     render() {
-        const instance = createTypeStyle();
-        const className = instance.style(this.styles)
+        // const instance = createTypeStyle();
+        // const className = instance.style(this.styles)
         const items = JSON.stringify(this.items)
 
         return html`

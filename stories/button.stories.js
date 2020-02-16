@@ -4,4 +4,4 @@ export default {
     title: 'Button',
 };
 
-export const Default = () => '<xura-button">Button</xura-button>';
+export const Default = () => '<xura-button>Button</xura-button>';
