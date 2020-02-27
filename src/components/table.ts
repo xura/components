@@ -16,7 +16,6 @@ export class Table extends CustomElement {
     columns: Object[] = [];
 
     render() {
-        debugger;
         return html`
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/22.1.1/styles/ag-grid.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/ag-grid@18.1.3-beta.1/dist/styles/ag-theme-material.css" />
