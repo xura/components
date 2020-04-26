@@ -24,7 +24,7 @@ export class Navigation extends CustomElement {
             <mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
             <mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
             <mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
-            <div><!-- content --></div>
+            <div><!-- content a change for poly --></div>
         </mwc-top-app-bar>`;
     }
 }
